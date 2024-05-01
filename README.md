@@ -49,7 +49,7 @@ Below is an exmaple of how can you run the application using Python:
    pip3 install pipenv
    ```
 
-2. Instlal dependencies:
+2. Install dependencies:
    ```sh
    pipenv install
    ```
@@ -88,7 +88,7 @@ Key points to take into account to scale up to millions of users per day:
 - Caching requests: Cache requests that are frequently requested so instead of actually doing the requests to the website to ge the robots.txt file we will answer from the cache, which will be stored in a temporary storage layer. This comes with the challenge on how to invalidate this caching so we would need to set up a system that every x time does a request to the wbesite and checks that the robots.txt file has not been change or getting somehow and event from a website that the robots.txt file has change and we need to ivnalidate the cache. Nonetheless I think robots.txt files do not change frequently.
 - Asynchronously process requests: When a thread does a request instead of waitting for it, it will move on to the next task to do. This will allow to handle more requests and improve the responsiveness of the application. For this we would need a message broker between the client and the server so it can handle which tasks need to be done.
 - Resiliency/Reliability/Availability: In production environmnets we will need resiliency so if there is any issue with the application we can fall back to another instance of the application instantly, with the use of a loadbalancer.
-- Monitoring (metrics, logs): We would need to collect different kinds of metrics to help us gain insights and understand the performance and health status of the application at any given time. Also an alerting system needs to be set up so that we are alerted in case of an incident. (E.g Datadog, Prometheus, Grafana, AlertManager, Datadog, etc...)
+- Monitoring (metrics, logs): We would need to collect different kinds of metrics to help us gain insights and understand the performance and health status of the application at any given time. Also an alerting system needs to be set up so that we are alerted in case of an incident. (E.g Datadog, Prometheus, Grafana, AlertManager, etc...)
 
 High-level architecture for this application:
 
