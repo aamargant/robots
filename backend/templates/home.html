@@ -1,0 +1,19 @@
+<!-- pages/templates/pages/home.html -->
+{% extends "base.html" %}
+
+{% block page_content %}
+<div class="grid-container">
+  <h1 class="header">Welcome to the robots.txt viewer 🤖</h1>
+  <form action="/robots/" method="POST">
+    <div class="input-group">
+      {% csrf_token %}
+      <input class="input" id="website" type="url" name="website" placeholder="Enter website" />
+      <input class="button--submit" type="submit" value="Submit" />
+    </div>
+  </form>
+  <div style="text-align: left; font-size: 14px; color: red">
+    {{ robots }}
+  </div>
+</div>
+<div style="opacity: 0.5">E.g. https://www.capterra.com</div>
+{% endblock page_content %}

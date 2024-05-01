@@ -1,0 +1,29 @@
+<!-- pages/templates/pages/home.html -->
+{% extends "base.html" %}
+
+{% block page_content %}
+    <div class="inline">
+        <a class="previous" href="/">Back</a>
+        <div class="title h1">Robots viewer</div>
+        <div class="tableContainer">
+            <table>
+                <tr>
+                    <th>User Agent</th>
+                    <th>Rule</th>
+                    <th>Pattern</th>
+                </tr>
+                {% for agent, rules in result_data_set.items %}
+                        {% for rule, patterns in rules.items %}
+                            {% for pattern in patterns %}
+                            <tr>
+                                <td>{{ agent }}</td>
+                                <td>{{ rule }}</td>
+                                <td>{{ pattern }}</td>
+                            </tr>
+                            {% endfor %}
+                        {% endfor %}
+                {% endfor %}
+            </table>
+        </div>
+    </div>
+{% endblock page_content %}
